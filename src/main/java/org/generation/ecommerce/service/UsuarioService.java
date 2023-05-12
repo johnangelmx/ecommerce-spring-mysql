@@ -35,7 +35,11 @@ public class UsuarioService {
     }
 
     public Usuario addUsuario(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+        Usuario tmp = null;
+        if (usuarioRepository.findByEmail(usuario.getEmail()).isEmpty()) {
+            tmp = usuarioRepository.save(usuario);
+        }
+        return tmp;
     }
 
     public Usuario updateUsuario(Long id, ChangePassword changePassword) {
