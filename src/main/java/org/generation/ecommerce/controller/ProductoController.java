@@ -19,10 +19,8 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
-
     @GetMapping
     public List<Producto> getAllProducts() {
-
         return productoService.getAllProductos();
     }//getAllProducts
 
