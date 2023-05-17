@@ -35,7 +35,13 @@ public class ProductoService {
     }
 
     public Producto addProducto(Producto producto) {
-        return productoRepository.save(producto);
+        Producto tmpProd = null;
+        if (productoRepository.findByNombre(producto.getNombre()).isEmpty()) {
+            tmpProd = productoRepository.save(producto);
+        } else {
+            System.out.println("ya existe un producto con el nombre " + producto);
+        }
+        return tmpProd;
     }
 
     public Producto updateProducto(Long id, String nombre, String descripcion, String imagen, Double precio) {
