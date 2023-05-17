@@ -16,14 +16,14 @@ public class EcommerceApplication {
     }//main
 
     //? Componente a ejecutar esta aplicacion, y por el tipo de metodo detectará que es un filtro ⬇️
-//    @Bean
-//    public FilterRegistrationBean<JwtFilter> jwtFilter() {
-//        FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
-//        registrationBean.setFilter(new JwtFilter());
-////        registrationBean.addUrlPatterns("/api/*");
-//        registrationBean.addUrlPatterns("/api/productos/*");
-//        registrationBean.addUrlPatterns("/api/usuarios/*");
-//        return registrationBean;
-//    }
+    @Bean
+    public FilterRegistrationBean<JwtFilter> jwtFilter() {
+        FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new JwtFilter());
+//        registrationBean.addUrlPatterns("/api/*");
+        registrationBean.addUrlPatterns("/api/productos/*");
+        registrationBean.addUrlPatterns("/api/usuarios/*");
+        return registrationBean;
+    }
 
 }//class EcommerceApplication
